@@ -8,4 +8,7 @@
 #   $ ruby exercise6.rb
 #   CAN'T YOU SEE I'M BUSY?! MAKE IT FAST, JOHNSON!
 #   i want a raise
-#   WHADDAYA MEAN 'I WANT A RAISE'?!? YOU'RE FIRED!!
+#   WHADDAYA MEAN 'IWANT A RAISE'?!? YOU'RE FIRED!!
+puts "CAN'T YOU SEE I'M BUSY?! MAKE IT FAST, JOHNSON!"
+response = gets.chomp.to_s.upcase
+puts "WHADDAYA MEAN '#{response}'?!? YOU'RE FIRED!!"

@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+whi#!/usr/bin/env ruby
 #
 # 5 points
 #

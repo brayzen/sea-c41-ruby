@@ -17,3 +17,16 @@
 # TIP #2: Use the `string.ljust` method from class 2 exercise 7.
 #
 # TIP #3: The width of each line is 50 characters.
+
+amalgam =
+  [{ song: 'Can I Kick It?', artist: 'A Tribe Called Quest', year: '1991' },
+   { song: 'Rump Shaker', artist: 'Wreckx-n-Effect', year: '1992' },
+   { song: 'Check Yo Self', artist: 'Ice Cube', year: '1993' },
+   { song: 'Regulate', artist: 'Warren G & Nate Dogg', year: '1994' },
+   { song: 'I Got 5 On It', artist: 'Luniz', year: '1995' },
+   { song: 'Ready Or Not', artist: 'The Fugees', year: '1996' }
+  ]
+
+amalgam.each do |i|
+  puts i[:song].ljust(20) + i[:artist].ljust(20) + i[:year].rjust(10)
+end

@@ -33,7 +33,36 @@
 
 # rubocop:disable MethodLength
 def modern_roman_numeral(num)
-  num # change me
+  roman_numerals = {
+    'M' => 1000,
+    'CM' => 900,
+    'D' => 500,
+    'CD' => 400,
+    'C' => 100,
+    'XC' => 90,
+    'L' => 50,
+    'XL' => 40,
+    'X' => 10,
+    'IX' => 9,
+    'V' => 5,
+    'IV' => 4,
+    'I' => 1
+  }
+  roman_string = ''
+  while num != 0
+    roman_numerals.keys.each do |k|
+      v = roman_numerals[k]
+      times = num / v
+      roman_string += k * times
+      if num % v == 0
+        num = 0
+        return roman_string
+      else
+        num = num % v
+      end
+    end
+    return roman_string
+  end
 end
 
 input = ARGV[0].to_i

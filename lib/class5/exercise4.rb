@@ -22,11 +22,17 @@
 require 'yaml'
 
 def database
-  '/replace/me'
+  File.absolute_path('lib/class5/database.yml')
 end
 
 def load
-  ['fix me']
+  File.open(database, 'r') do |f|
+    rec = f.map do |i|
+      YAML.load(i)
+    end
+    rec.delete(nil)
+    return rec
+  end
 end
 
 records = load

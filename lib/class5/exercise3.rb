@@ -24,19 +24,28 @@
 #    - Monetized assets
 #
 # TIP: Read section 11.4 carefully.
+#
 
 require 'yaml'
 
 def records
-  ['replace me']
+  [
+    'Incentivized methodologies',
+    'Seemless innovation',
+    'Corporate synergy',
+    'Scalable globalization',
+    'Monetized assets'
+  ]
 end
 
 def database
-  '/replace/me'
+  File.absolute_path('lib/class5/database.yml')
 end
 
 def save
-  false # fix me
+  File.open(database, 'w') do |f|
+    f.write(records.to_yaml)
+  end
 end
 
 save

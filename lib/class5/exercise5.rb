@@ -26,15 +26,20 @@
 require 'yaml'
 
 def database
-  '/replace/me'
+  File.absolute_path('lib/class5/database.yml')
 end
 
 def load
-  ['replace me']
+  File.open(database, 'r') do |f|
+    rec = f.map do |i|
+      YAML.load(i)
+    end
+    return rec
+  end
 end
 
 def find(id)
-  id # fix me
+  load[id]
 end
 
 input = ARGV[0].to_i

@@ -29,6 +29,7 @@ def database
   File.absolute_path('lib/class5/database.yml')
 end
 
+
 def load
   File.open(database, 'r') do |f|
     rec = f.map do |i|

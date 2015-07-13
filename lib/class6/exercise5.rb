@@ -22,15 +22,30 @@
 require 'yaml'
 
 def database
-  '/replace/me'
+  File.absolute_path("#{File.dirname(__FILE__)}/database.yml")
 end
 
 def load
-  { replace: 'me' }
+  File.open(database, 'r') do |f|
+    person = f.map do |i|
+      YAML.load(i)
+    end
+    person.delete(nil)
+    return person
+  end
 end
 
 def find(key)
-  key # fix me
+  key.to_sym unless key.is_a?(Symbol)
+  load.each do |x|
+    x.each_key do |k|
+      if k.to_s == key.to_s
+        # puts x[k].to_s + '   hell YES!!'
+        return x[k]
+      end
+    end
+  end
+  false
 end
 
 input = ARGV[0]

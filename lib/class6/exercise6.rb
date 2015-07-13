@@ -18,19 +18,33 @@
 #   :name => "John Lennon"
 #
 # TIP: How do you merge two Hashes together?
-
 require 'yaml'
 
 def database
-  '/replace/me'
+  File.absolute_path("#{File.dirname(__FILE__)}/database.yml")
 end
 
 def load
-  { replace: 'me' }
+  File.open(database, 'r') do |f|
+    person = f.map do |i|
+      YAML.load(i)
+    end
+    person.delete(nil)
+    return person
+  end
 end
 
 def update(key, value)
-  key + value # fix me
+  obj = load.reduce({}) do |memo, x|
+    memo.merge(x)
+  end
+  key = key.to_sym
+  obj2 = {}
+  obj2[key] = value
+  obj3 = obj.merge(obj2)
+  File.open(database, 'w') do |f|
+    f.write(obj3.to_yaml)
+  end
 end
 
 input1, input2 = ARGV

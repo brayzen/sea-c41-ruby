@@ -32,13 +32,16 @@
 #
 # TIP #2: Use `return` to preemptively exit the `ask` method.
 
-def ask(question)
+
+
+def ask(quest)
   loop do
-    puts question
+    puts quest
     response = gets.chomp.to_s.downcase
     return 'We can be friends!' if response == 'y'
     return 'Get out of my sight!' if response == 'n'
-    puts 'Try again' if response != 'y' || response != 'n'
+    puts 'Try again' if response != 'y' || response != ''
+    end
   end
 end
 

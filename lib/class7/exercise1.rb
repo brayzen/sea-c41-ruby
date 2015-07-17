@@ -47,29 +47,65 @@
 
 class Integer
   def hours_in_seconds
-    # replace me
+    self * 60 * 60
   end
 end
 
 class String
   def indent(amount = 2)
-    amount # replace me
+    string = self
+    @amount = amount
+    @length = string.length
+    string.rjust(length + amount)
   end
 end
+
+# puts'----------'
+# puts 'foo'.indent(3)
 
 class Integer
   # rubocop:disable MethodLength
   def to_roman
-    # replace me
+    num = self
+    roman_numerals = {
+      'M' => 1000,
+      'CM' => 900,
+      'D' => 500,
+      'CD' => 400,
+      'C' => 100,
+      'XC' => 90,
+      'L' => 50,
+      'XL' => 40,
+      'X' => 10,
+      'IX' => 9,
+      'V' => 5,
+      'IV' => 4,
+      'I' => 1
+    }
+    roman_string = ''
+    while num != 0
+      roman_numerals.keys.each do |k|
+        v = roman_numerals[k]
+        times = num / v
+        roman_string += k * times
+        if num % v == 0
+          num = 0
+          return roman_string
+        else
+          num = num % v
+        end
+      end
+      return roman_string
+    end
   end
 end
 
 class Array
   def second
-    # replace me
+    self[1]
   end
 
   def third
-    # replace me
+    self[2]
   end
 end

@@ -36,7 +36,7 @@ def load
 end
 
 def find(key)
-  key.to_sym unless key.is_a?(Symbol)
+  key.to_sym
   load.each do |x|
     x.each_key do |k|
       if k.to_s == key.to_s

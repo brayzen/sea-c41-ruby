@@ -18,7 +18,7 @@
 # TIP: See your solution for Class 5 Exercise 2.
 
 def database
-  File.absolute_path("#{File.dirname(__FILE__)}/database.yml")
+  File.absolute_path("#{File.dirname(__FILE__)}/database.yml") # Per Charlie
 end
 
 puts database

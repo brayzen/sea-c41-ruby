@@ -37,5 +37,28 @@
 
 # rubocop:disable TrivialAccessors
 class OrangeTree
-  # replace me
+  attr_reader :fruit
+
+  def initialize(amount = 50)
+    @fruit = amount
+  end
+
+  def fruit
+    @fruit
+  end
+
+  def pick!(amount = 1)
+    nil if @fruit < amount
+    @fruit -= amount
+  end
+
+  def ==(other)
+    false unless other.is_a?(Object)
+    true if @fruit == other.fruit
+  end
+
+  def pick(amount = 1)
+    nil if amount > @fruit
+    OrangeTree.new(@fruit - amount)
+  end
 end

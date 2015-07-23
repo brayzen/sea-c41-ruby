@@ -17,12 +17,11 @@
 
 def follow_the_execution(method_param)
   puts 'Executing the method'
-  yield(method_param)
+  yield(method_param, 'lunch')
 end
 
-follow_the_execution('dinner') do |block_param|
-  puts "method_param is #{block_param}"
+follow_the_execution('dinner') do |block_param1, block_param2|
+  puts "method_param is #{block_param1}"
   puts 'Executing the block'
-  block_param = 'lunch'
-  puts "block_param is #{block_param}"
+  puts "block_param is #{block_param2}"
 end

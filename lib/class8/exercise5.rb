@@ -13,8 +13,8 @@
 #   DONG!
 #   DONG!
 
-def grandfather_clock(hour, &block)
-  hour && block # fix me
+def grandfather_clock(hour)
+  hour.times { yield if block_given? }
 end
 
 input = ARGV[0]

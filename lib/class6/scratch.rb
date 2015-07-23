@@ -1,7 +1,7 @@
 require 'yaml'
 
 def database
-  File.absolute_path("#{File.dirname(__FILE__)}/database.yml")
+  File.absolute_path(File.dirname(__FILE__) + '/database.yml')
 end
 
 def load
@@ -15,3 +15,5 @@ def load
     #amalgam_object.delete(nil)
     #p amalgam_object
 end
+
+puts "#{File.absolute_path(__FILE__)} and something"

@@ -36,18 +36,12 @@ def database
 end
 
 def load
-  File.open(database, 'r') do |f|
-    person = f.map do |i|
-      YAML.load(i)
-    end
-    person.delete(nil)
-    return person
-  end
+  puts YAML.load(File.open(database, 'r'))
 end
 
 def display(pairs)
   pairs.each do |x|
-    puts x.inspect.gsub('=>', ' => ').slice(1...-1)
+    puts x.inspect.gsub(',', ' =>').slice(1...-1)
   end
 end
 

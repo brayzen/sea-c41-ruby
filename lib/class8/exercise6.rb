@@ -14,8 +14,8 @@
 #   GONGGG!
 #   GONGGG!
 
-def grandfather_clock(hour, sound, &block)
-  hour && sound && block # fix me
+def grandfather_clock(hour, sound)
+  hour.times { yield(sound) if block_given? }
 end
 
 input1 = ARGV[0]

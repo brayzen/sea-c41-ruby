@@ -17,10 +17,17 @@
 #
 # TIP: Don't over think this one. The simpler the better.
 
-def follow_the_execution(method_param1, method_param2, &block)
-  method_param1 && method_param2 && block # fix me
+def follow_the_execution(method_param1, method_param2)
+  puts 'Executing the method'
+  yield(method_param1, method_param2)
 end
 
 follow_the_execution('dinner', 'soup') do |block_param1, block_param2|
-  block_param1 && block_param2 # fix me
+  puts "method_param1 is #{block_param1}"
+  puts "method_param2 is #{block_param2}"
+  puts 'Executing the block'
+  block_param1 = 'lunch'
+  block_param2 = 'tacos'
+  puts "block_param1 is #{block_param1}"
+  puts "block_param2 is #{block_param2}"
 end

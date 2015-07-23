@@ -14,10 +14,11 @@
 #
 # TIP: Don't over think this one. The simpler the better.
 
-def follow_the_execution(&block)
-  block # fix me
+def follow_the_execution
+  puts 'Executing the method'
+  yield
 end
 
 follow_the_execution do
-  # fix me
+  puts 'Executing the block'
 end

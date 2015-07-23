@@ -22,18 +22,19 @@
 
 class Array
   def each_without_yolo(&block)
-    self.call
+    self.each do |x|
+      yield x
+    end
   end
 end
 
 %w(OMG YOLO ROTFL yolo FTW).each_without_yolo do |e|
-  puts "#{e}:  yet to be run through condition"
   if e.downcase == 'yolo'
-    puts 'Life is too short'
+    e = 'Life is too short'
+    puts e
   else
-    e
+    puts e
   end
 end
 
-p new_array
 
